@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %}
+    Thank you!
+{% endblock %}
+
+{% block content %}
+<header class="masthead fs" style="background: url('{% static 'img/header-bg-transp.jpg' %}')">
+    <div class="page-section" style="padding-top: 200px;">
+        <div class="container">
+            <div class="card mb-3 soft-card">
+                <div class="row no-gutters">
+                    <div class="col-md">
+                        <div class="card-body">
+                            <h3 class="card-title">Thanks for getting in touch with us!</h3>
+                            <p class="card-text">Please <a href="{% url 'pieces' %}">click here</a> to see your requests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock content %}

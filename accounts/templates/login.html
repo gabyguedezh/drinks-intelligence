@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block page_title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+<header class="masthead" style="background: url('{% static 'img/header-bg.jpg' %}')">
+    <div class="d-flex justify-content-center h-100">
+        <div class="soft-card">
+            <div class="card-header">
+                <h3>LOGIN</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in login_form %}
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                {% if forloop.first %}
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                {% else %}
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                {% endif %}
+                                {{ field }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="row align-items-center remember">
+                        <input type="checkbox">Remember Me
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account?<a href="{% url 'registration' %}">Sign Up</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="{% url 'password_reset' %}">Reset Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

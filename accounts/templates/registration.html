@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block page_title %}
+    Registration Page
+{% endblock %}
+
+{% block content %}
+<header class="masthead" style="background: url('{% static 'img/header-bg.jpg' %}')">
+    <div class="d-flex justify-content-center h-100">
+        <div class="soft-card">
+            <div class="card-header">
+                <h3>REGISTER</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in registration_form %}
+                    {{ field.label }}
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                {% if forloop.counter == 1 %}
+                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                {% elif forloop.counter == 2 %}
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                {% else %}
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                {% endif %}
+                                {{ field }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    <p>If you already have an account,<br>you can <a href="{% url 'login' %}">log in</a> instead.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

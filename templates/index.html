@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %}
+    Welcome!
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<header class="masthead" style="background: url('{% static 'img/header-bg.jpg' %}')">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading text-uppercase"><span class="yellow-text">Content creation and marketing for the drinks industry</span></div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Contact Us</a>
+        </div>
+    </div>
+</header>
+
+
+<!-- Services -->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Services</h2>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-6">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading">Portfolio</h4>
+                <p class="text-muted">Read articles, recipes and samples of my work.</p>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">BROWSE ARTICLES</a>
+            </div>
+            <div class="col-md-6">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading">Work with us</h4>
+                <p class="text-muted">Event planning, content creation, research and bespoke packages.</p>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'articles' %}">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimony -->
+<section class="bg-light page-section" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Our clients love us!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="testimony">
+                    <img class="mx-auto rounded-circle" src="{% static 'img/geoff_portrait.jpg' %}" alt="">
+                    <h4>Geoff Carty</h4>
+                    <p class="text-muted">Owner at 57 The Headline</p>
+                    <h5 class="font-italic">“We’ve worked with Gabriela for several projects and her creative input and attention to detail are always on point!”</h5>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a  target="_blank" rel="noopener noreferrer" href="http://twitter.com/57theheadline">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/57-The-Headline-1450983391796220/">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="testimony">
+                    <img class="mx-auto rounded-circle" src="{% static 'img/keith_portrait.jpg' %}" alt="">
+                    <h4>Keith Mahon</h4>
+                    <p class="text-muted">Founder/MD at THeTaste.ie</p>
+                    <h5 class="font-italic">"Punctual, proactive and great at helping us make our ideas come to life!"</h5>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/MrKeithMahon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/thetaste.ie">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="testimony">
+                    <img class="mx-auto rounded-circle" src="{% static 'img/lorcan_portrait.jpg' %}" alt="">
+                    <h4>Lorcan O’Briens</h4>
+                    <p class="text-muted">Comms Manager at O’Briens Wine</p>
+                    <h5 class="font-italic">“We have worked with Drinks Intelligence over the last two years, for social media takeovers during events, it makes work so much easier”</h5>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a target="_blank" rel="noopener noreferrer" href="http://twitter.com/obrienswine">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" rel="noopener noreferrer" href="http://www.facebook.com/obrienswine">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Clients -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <a href="#">
+                    <img class="img-fluid d-block mx-auto" src="{% static 'img/logos/fws_logo.jpg' %}" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="#">
+                    <img class="img-fluid d-block mx-auto" src="{% static 'img/logos/grey_goose_logo.jpg' %}" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="#">
+                    <img class="img-fluid d-block mx-auto" src="{% static 'img/logos/obriens_logo.jpg' %}" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="#">
+                    <img class="img-fluid d-block mx-auto" src="{% static 'img/logos/supervalu_logo.jpg' %}" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

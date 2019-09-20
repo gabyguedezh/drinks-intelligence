@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %}
+    Blog
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<header class="masthead" style="background: url('{% static 'img/header-bg.jpg' %}')">
+    <div class="container">
+        {% for post in posts %}
+            <div class="intro-text">
+                <div class="intro-heading text-uppercase"><span class="yellow-text">{{ post.title }}</span></div>
+            </div>
+            <div class="card mb-3 soft-card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{ post.image }}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text">{{ post.text }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                <h4 class="card-text">Status: {{ piece.status }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</header>
+{% endblock content %} 

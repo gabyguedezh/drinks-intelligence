@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %}
+    Articles
+{% endblock %}
+
+{% block content %}
+<div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="expModal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="opaque-card">
+            <div class="card-header">
+                <h3>Work with me</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in article_form %}
+                    <h5 class="card-title text-white">{{ field.label }}</h5>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                {% if forloop.counter == 1 %}
+                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                {% elif forloop.counter == 2 %}
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                {% else %}
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                {% endif %}
+                                {{ field }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <input type="submit" value="Request" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<header class="masthead" style="background: url('{% static 'img/header-bg-transp.jpg' %}')">
+    <div class="page-section" style="padding-top: 200px;">
+        <div class="container">
+            <div class="card mb-3 soft-card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{% static 'img/drinks_intelligence_toast.jpg' %}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Work with Drinks Intelligence</h5>
+                            <h5 class="card-text">Let us help you amplify your brand and promote your business with great content and expertly planned experiences.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for card in cards %}
+        <div class="page-section soft-pad">
+            <div class="container">
+                <div class="intro-text soft-pad">
+                    <div class="intro-lead-in shadow-text">{{ card.type }}</div>
+                </div>
+                <div class="row">
+                    {% for piece in card.pieces %}
+                        <div class="col-sm-3">
+                            <div class="card soft-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ piece.title }}</h5>
+                                    <p class="card-text">{{ piece.blurb }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex justify-content-center links">
+                                        {% if not forloop.last %}
+                                            <form action="{% url 'charge' %}" method="post">
+                                                {% csrf_token %}
+                                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                    data-key="{{ stripe_key }}"
+                                                    data-description="{{ piece.title }}"
+                                                    data-amount="{{ piece.stripe_price }}"
+                                                    data-locale="auto"
+                                                    data-label="Pay {{ piece.price }}"
+                                                    data-currency="eur">
+                                                </script>
+                                                <input id="subject" type="text" name="subject" value="{{ piece.title }}" hidden>
+                                                <input id="description" type="text" name="description" value="{{ piece.blurb }}" hidden>
+                                                <input id="type" type="text" name="type" value="{{ card.type }}" hidden>
+                                                <input id="stripe_price" type="text" name="stripe_price" value="{{ piece.stripe_price }}" hidden>
+                                                <input id="price" type="text" name="price" value="{{ piece.price }}" hidden>
+                                            </form>
+                                        {% else %}
+                                            <!-- <h2><a data-toggle="modal" href="#contactModal">Contact Us</a></h2> -->
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
+                                                Contact Us
+                                            </button>
+                                            <!-- <a href="" data-toggle="modal" data-target="#contactModal">EMAIL</a> -->
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</header>
+<script>
+    $('.stripe-button-el').addClass('btn btn-primary').removeClass('stripe-button-el')
+</script>
+{% endblock content %}
