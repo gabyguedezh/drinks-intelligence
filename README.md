@@ -43,6 +43,8 @@ My user stories
 - A contact form.
 - Payment processing functionality using Stripe.
 - A homepage with information about the company.
+- A login area where users can see the status of their requests.
+- An admin area where the admin can update the status of different requests.
 
 ##### Existing features
 
@@ -51,6 +53,8 @@ My user stories
 - A contact form.
 - Payment processing functionality using Stripe.
 - A homepage with information about the company.
+- A login area where users can see the status of their requests.
+- An admin area where the admin can update the status of different requests.
 
 
 ##### Desired features
@@ -73,7 +77,7 @@ My user stories
 - [Django](https://www.djangoproject.com/)
     - The project uses **django** to bring the backend and frontend together.
 
-- [MySQL](https://www.mysql.com/)
+- [PostgreSQL](https://www.postgresql.org/)
     - The project uses a SQL database.
     
 - [Stripe](https://stripe.com/ie)
