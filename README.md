@@ -165,12 +165,16 @@ Config Vars --> IP = 0.0.0.0, PORT = 5000
 
 ## Credits
 
-### Content
+### Content and tools
 - Help working with the views [HERE](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone)
 - To optimise database queries [HERE](https://simpleisbetterthancomplex.com/tips/2016/05/16/django-tip-3-optimize-database-queries.html)
 - Layout and templating reference [HERE](https://blackrockdigital.github.io/startbootstrap-agency/)
 - ASCII text generator [HERE](http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)
 - Login card template [HERE](https://bootsnipp.com/snippets/vl4R7)
+- Switching from SQLite3 to PostgreSQL [HERE](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/)
+- Hiding environment varialbles [HERE](https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html)
+- Deploying to Heroku [HERE](https://simpleisbetterthancomplex.com/tutorial/2016/08/09/how-to-deploy-django-applications-on-heroku.html)
+- Adding AWS S3 to a Django-Heroku project [HERE](https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html)
 
 
 ### Media
