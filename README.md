@@ -157,10 +157,30 @@ Process to deploy the project to a hosting platform:
 
 This project was deployed on Heroku under the name of [drinks-intelligence](https://drinks-intelligenge.herokuapp.com/).
 Both the deployed project on Heroku and the project ran from Cloud9 look identical and behave identically.
-- Different values for environment variables: 
-Config Vars --> IP = 0.0.0.0, PORT = 5000
 
-- Separate git branch: Push to Heroku --> $ git push heroku master
+## Environment variables
+
+The project uses python-decouple to separate environment variables from the settings file to a .env file.
+The relevant environmnet variables are:
+
+- Django secret key as SECRET_KEY
+- Debug mode as DEBUG
+- PostgreSQL database name as DB_NAME
+- PostgreSQL database user as DB_USER
+- PostgreSQL database password as DB_PASSWORD
+- PostgreSQL database host as DB_HOST
+- Allowed hosts as ALLOWED_HOSTS
+- Amazon S3 bucket media storage user as AWS_S3_USER
+- Amazon S3 bucket media storage access key as AWS_ACCESS_KEY_ID
+- Amazon S3 bucket media storage secret access key as AWS_SECRET_ACCESS_KEY
+- Amazon S3 bucket media storage bucket name as AWS_STORAGE_BUCKET_NAME
+- Amazon S3 bucket media storage custom domain as AWS_S3_CUSTOM_DOMAIN
+
+- Separate git branch: Push to Heroku --> $ git push heroku master.
+
+## Dependencies
+
+- Dependencies are listed in requirements.txt file.
 
 
 ## Credits
